@@ -37,6 +37,7 @@ function rainHearts(count = 30) {
     h.style.left = Math.random() * 100 + 'vw';
     h.style.animationDelay = Math.random() * 2 + 's';
     h.style.fontSize = (14 + Math.random() * 20) + 'px';
+    h.style.setProperty('--sx', (Math.random() * 120 - 60) + 'px');
     document.body.appendChild(h);
     setTimeout(() => h.remove(), 6000);
   }
@@ -155,7 +156,12 @@ function renderCard(backToFront = false) {
   front.querySelector('.card-tag').textContent = cat.name;
   back.querySelector('.card-text').textContent = cat.wishes[curIdx];
   back.querySelector('.card-count').textContent = (curIdx + 1) + ' / ' + cat.wishes.length;
-  if (backToFront) flipCard.classList.remove('flipped');
+  if (backToFront) {
+    flipCard.classList.remove('flipped');
+    flipCard.classList.remove('card-pop');
+    void flipCard.offsetWidth;
+    flipCard.classList.add('card-pop');
+  }
 }
 function switchCat(i) { curCat = i; curIdx = 0; renderCard(true); }
 function nextWish() { curIdx = (curIdx + 1) % WISH_CATEGORIES[curCat].wishes.length; renderCard(true); }
@@ -164,16 +170,57 @@ document.getElementById('nextCard').addEventListener('click', nextWish);
 renderCard();
 
 const badminton = document.getElementById('badminton');
+const rallyMsg = document.createElement('div');
+rallyMsg.className = 'rally-msg';
+badminton.appendChild(rallyMsg);
+let rallyCount = 0, rallyTimer = null;
+const RALLY_MSGS = {
+  5: '5 连击！流烬燃看了都想拜师 🏸',
+  10: '10 连击！你已经是扣杀王了！',
+  15: '15 连击！羽毛球之神降临！'
+};
 badminton.addEventListener('click', () => {
+  rallyCount++;
   const s = document.createElement('div'); s.className = 'shuttle'; s.textContent = '🏸';
   badminton.appendChild(s);
-  setTimeout(() => s.remove(), 1600);
+  setTimeout(() => s.remove(), 900);
+  for (let g = 0; g < 3; g++) {
+    const gh = document.createElement('div'); gh.className = 'shuttle-ghost';
+    gh.style.animationDelay = (-0.11 * (g + 1)) + 's';
+    badminton.appendChild(gh);
+    setTimeout(() => gh.remove(), 900);
+  }
+  const msg = RALLY_MSGS[rallyCount];
+  if (msg) { rallyMsg.textContent = msg; rallyMsg.classList.add('show', 'big'); setTimeout(() => rallyMsg.classList.remove('big'), 600); }
+  else if (rallyCount > 1) { rallyMsg.textContent = '连击 ×' + rallyCount + '！'; rallyMsg.classList.add('show'); }
+  badminton.classList.remove('shake'); void badminton.offsetWidth; badminton.classList.add('shake');
+  clearTimeout(rallyTimer);
+  rallyTimer = setTimeout(() => { rallyCount = 0; rallyMsg.classList.remove('show'); }, 1800);
 });
+
 const billiards = document.getElementById('billiards');
+const BALL_COLORS = ['#FF8FB1', '#FFD98E', '#A8E8C8'];
 billiards.addEventListener('click', () => {
-  const b = document.createElement('div'); b.className = 'cue-ball';
-  billiards.appendChild(b);
-  setTimeout(() => b.remove(), 1500);
+  const cue = document.createElement('div'); cue.className = 'cue-stick';
+  billiards.appendChild(cue); setTimeout(() => cue.remove(), 600);
+  const balls = [{ color: '#2B2B2B', white: true }].concat(BALL_COLORS.map(c => ({ color: c })));
+  balls.forEach((b, i) => {
+    const el = document.createElement('div'); el.className = 'ball';
+    if (b.white) el.innerHTML = '<i></i>';
+    el.style.background = b.color;
+    const ang = Math.random() * Math.PI * 2;
+    const dist = 70 + Math.random() * 80;
+    el.style.setProperty('--tx', Math.cos(ang) * dist + 'px');
+    el.style.setProperty('--ty', Math.sin(ang) * dist + 'px');
+    el.style.setProperty('--rd', (Math.random() * 540 - 270) + 'deg');
+    el.style.animationDelay = (i * 0.05) + 's';
+    billiards.appendChild(el);
+    setTimeout(() => el.remove(), 1300);
+  });
+  const flash = document.createElement('div'); flash.className = 'pocket-flash'; flash.textContent = '✨';
+  billiards.appendChild(flash); setTimeout(() => flash.remove(), 1100);
+  const toast = document.createElement('div'); toast.className = 'billiards-toast'; toast.textContent = '一杆进洞！好运已到账 🎱';
+  billiards.appendChild(toast); setTimeout(() => toast.remove(), 1400);
 });
 
 const io = new IntersectionObserver((entries) => {
