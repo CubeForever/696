@@ -1,6 +1,6 @@
 # 🎂 流烬燃的生日网页
 
-为流烬燃（生日 8/11）精心制作的单页生日祝福 H5，卡通可爱风、暖色调，2026-08-11 上线。
+为流烬燃精心制作的单页生日祝福 H5，卡通可爱风、暖色调。
 
 ## ✨ 页面内容
 
@@ -37,8 +37,6 @@
 
 双击 `index.html` 即可（或使用任意静态服务器）。
 
-## 🌐 部署到 GitHub Pages
+## 🌐 访问 GitHub Pages
 
-1. 新建 GitHub 仓库，推送本目录所有文件
-2. 仓库 Settings → Pages → Source 选择 main 分支 /root
-3. 访问 `https://<用户名>.github.io/<仓库名>/`
+访问 `[https://<用户名>.github.io/<仓库名>/](https://cubeforever.github.io/696/)`
