@@ -12,3 +12,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+.scene { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+.intro { background: linear-gradient(160deg, var(--pink), var(--gold) 70%, var(--cream)); }
+.intro-content { text-align: center; position: relative; z-index: 1; }
+.intro-title { font-size: clamp(1.6rem, 5vw, 2.6rem); color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.start-btn { margin-top: 2rem; padding: 1rem 2.4rem; font-size: 1.2rem; border: none; border-radius: 999px; background: #fff; color: var(--pink-deep); font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(255,138,92,.4); transition: transform .2s; }
+.start-btn:hover { transform: scale(1.08); }
+.float-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.float-item { position: absolute; bottom: -10vh; animation: floatUp linear infinite; opacity: .85; }
+@keyframes floatUp { to { transform: translateY(-120vh) rotate(360deg); } }
