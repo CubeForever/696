@@ -22,3 +22,12 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .float-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .float-item { position: absolute; bottom: -10vh; animation: floatUp linear infinite; opacity: .85; }
 @keyframes floatUp { to { transform: translateY(-120vh) rotate(360deg); } }
+
+.cat { width: 120px; height: 120px; filter: drop-shadow(0 4px 10px rgba(255,138,92,.35)); }
+.intro-cat { width: 140px; height: 140px; margin-bottom: .8rem; animation: catBounce 2.4s ease-in-out infinite; }
+@keyframes catBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+
+.confetti { position: fixed; width: 10px; height: 14px; z-index: 999; border-radius: 2px; pointer-events: none; animation: pop 1.3s ease-out forwards; }
+@keyframes pop { 0% { opacity: 1; } to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } }
+.heart-rain { position: fixed; top: -8vh; z-index: 998; pointer-events: none; animation: heartFall 4s linear forwards; }
+@keyframes heartFall { to { transform: translateY(110vh) rotate(20deg); } }
