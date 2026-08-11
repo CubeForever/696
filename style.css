@@ -36,6 +36,9 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 
 .type-title { font-size: clamp(2rem, 6vw, 3.2rem); color: var(--pink-deep); font-weight: 900; min-height: 3.2rem; }
 .type-title::after { content: '|'; animation: blink .8s steps(1) infinite; color: var(--coral); }
+.type-title.typed::after { display: none; }
+.type-title .char { display: inline-block; animation: charWave .65s var(--ease-pop) both; }
+@keyframes charWave { 0% { transform: scale(1); } 30% { transform: scale(1.35) translateY(-10px) rotate(5deg); } 60% { transform: scale(.94); } 100% { transform: scale(1); } }
 @keyframes blink { 50% { opacity: 0; } }
 .greeting-box { text-align: center; padding: 2rem; }
 .greeting-sub { margin-top: 1.2rem; font-size: 1.15rem; color: var(--ink); opacity: 0; transition: opacity 1s; }

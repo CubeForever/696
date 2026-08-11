@@ -228,11 +228,26 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.25 });
 document.querySelectorAll('.scene').forEach(s => { s.classList.add('reveal'); io.observe(s); });
 
+function waveChars(el) {
+  const text = el.textContent;
+  el.textContent = '';
+  [...text].forEach((ch, i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = ch;
+    span.style.animationDelay = (i * 0.08) + 's';
+    el.appendChild(span);
+  });
+}
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);
   rainHearts();
   typewriter(document.getElementById('typeArea'), MAIN_LINE, 500, () => {
+    const area = document.getElementById('typeArea');
+    waveChars(area);
+    area.classList.add('typed');
     document.getElementById('greetSub').style.opacity = 1;
   });
   setTimeout(() => document.getElementById('greeting').scrollIntoView({ behavior: 'smooth' }), 700);
