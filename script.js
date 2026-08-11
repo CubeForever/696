@@ -44,9 +44,23 @@ function rainHearts(count = 30) {
 
 spawnFloats(document.getElementById('floatLayer'), 14);
 
+const MAIN_LINE = '流烬燃，生日快乐！';
+const SUB_LINE = '愿今天所有的惊喜和甜，都只为你而来。';
+let typeTimer = null;
+function typewriter(el, text, speed = 130, done) {
+  let i = 0; el.textContent = '';
+  typeTimer = setInterval(() => {
+    el.textContent += text[i++];
+    if (i >= text.length) { clearInterval(typeTimer); done && done(); }
+  }, speed);
+}
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);
   rainHearts();
+  typewriter(document.getElementById('typeArea'), MAIN_LINE, 130, () => {
+    document.getElementById('greetSub').style.opacity = 1;
+  });
   setTimeout(() => document.getElementById('greeting').scrollIntoView({ behavior: 'smooth' }), 700);
 });

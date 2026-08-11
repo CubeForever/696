@@ -31,3 +31,10 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 @keyframes pop { 0% { opacity: 1; } to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } }
 .heart-rain { position: fixed; top: -8vh; z-index: 998; pointer-events: none; animation: heartFall 4s linear forwards; }
 @keyframes heartFall { to { transform: translateY(110vh) rotate(20deg); } }
+
+.type-title { font-size: clamp(2rem, 6vw, 3.2rem); color: var(--pink-deep); font-weight: 900; min-height: 3.2rem; }
+.type-title::after { content: '|'; animation: blink .8s steps(1) infinite; color: var(--coral); }
+@keyframes blink { 50% { opacity: 0; } }
+.greeting-box { text-align: center; padding: 2rem; }
+.greeting-sub { margin-top: 1.2rem; font-size: 1.15rem; color: var(--ink); opacity: 0; transition: opacity 1s; }
+.greeting-cat { margin-bottom: 1rem; }
