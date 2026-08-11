@@ -61,3 +61,20 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .l2 { height: 46px; background: linear-gradient(180deg, var(--cream), #FFE7D1); margin-top: -4px; }
 .l1 { height: 40px; background: linear-gradient(180deg, var(--gold), #FFC86B); border-radius: 8px 8px 14px 14px; }
 .fireworks { margin-top: 2rem; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 900; color: var(--pink-deep); min-height: 3rem; text-align: center; }
+
+.wishes-scene { background: linear-gradient(160deg, var(--cream), #F2E9FF); text-align: center; }
+.tabs { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 1.4rem 0; }
+.tab { padding: .5rem 1.2rem; border: none; border-radius: 999px; font-size: 1rem; font-weight: 700; cursor: pointer; background: #fff; color: var(--ink); box-shadow: 0 3px 10px rgba(0,0,0,.08); transition: transform .2s; }
+.tab:hover { transform: translateY(-2px); }
+.card-stage { perspective: 1200px; }
+.flip-card { position: relative; width: min(320px, 84vw); height: 240px; margin: 0 auto; cursor: pointer; transform-style: preserve-3d; transition: transform .6s; }
+.flip-card.flipped { transform: rotateY(180deg); }
+.card-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6rem; box-shadow: 0 10px 30px rgba(255,138,92,.25); }
+.card-front { background: linear-gradient(160deg, var(--card, var(--pink)), #fff 130%); }
+.card-back { background: #fff; transform: rotateY(180deg); padding: 1.4rem; }
+.card-emoji { font-size: 3rem; }
+.card-tag { font-size: 1.2rem; font-weight: 800; }
+.card-tip { font-size: .9rem; opacity: .7; }
+.card-text { line-height: 1.9; font-size: 1.05rem; }
+.card-count { margin-top: .8rem; font-size: .85rem; opacity: .6; }
+.next-wrap { margin-top: 1.4rem; }

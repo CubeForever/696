@@ -80,6 +80,89 @@ function birthdayFireworks() {
   }
 }
 
+const WISH_CATEGORIES = [
+  { key: 'warm', name: '暖心篇', emoji: '💗', color: '#FF8FB1',
+    wishes: [
+      '世界偶尔吵闹，但你永远是一处安静温暖的角落，生日快乐。',
+      '愿你每天醒来，阳光和好心情都刚好够用。',
+      '希望你的小确幸比烦恼多，笑容比星星亮。',
+      '累了就停下来歇歇，你已经做得很好了。',
+      '愿你的善良被人温柔以待，愿你被这个世界偏爱。',
+      '生日只是一天，但你值得被宠爱的日子，应该比一年365天还要多。',
+      '愿你的眼里有光，心里有糖，脚下的路都通向喜欢的地方。',
+      '如果快乐是门手艺，你一定是个匠人。今天，好好犒劳自己。',
+      '不用急着长大，也不用急着完美，你本来就很好。',
+      '祝你今年：想吃就吃，想睡就睡，想要的都得到。'
+    ] },
+  { key: 'praise', name: '夸夸篇', emoji: '🌟', color: '#FFD98E',
+    wishes: [
+      '开朗是你的超能力，只要你在场，空气都变热闹。',
+      '你的大度让所有小心眼都显得多余，和你相处真舒服。',
+      '积极乐观的流烬燃，就像自带小太阳，走到哪里亮到哪里。',
+      '你笑起来的样子，比生日蛋糕上的糖霜还甜。',
+      '球场上的你挥拍有力，生活中的你温柔有光。',
+      '你是我认识的人里，把"正能量"活成日常的第一名。',
+      '你的朋友圈如果有温度，一定比海南的夏天还暖。',
+      '外向又真诚的你，是人群里最亮的那颗糖。',
+      '论好人缘，你排第二，没人敢排第一。',
+      '今天的你比昨天更棒，明天的你会比今天更耀眼。'
+    ] },
+  { key: 'funny', name: '搞笑篇', emoji: '😆', color: '#A8E8C8',
+    wishes: [
+      '祝你生日蛋糕自由！奶油管够，热量归零。',
+      '听说你爱吃蛋糕——那祝你今天吃到的每一口，都不会长胖。',
+      '羽毛球打不过你没关系，但我祝你以后每颗球都过网！',
+      '台球桌上祝你杆杆进洞，人生路上祝你步步高升。',
+      '生日快乐！你负责开心，蛋糕负责长胖，分工明确。',
+      '愿你的烦心事都像打飞的羽毛球，一去不回头。',
+      '今天你最大，说什么都对，吃什么都不胖。',
+      '祝你今年运气好到，连台球都替你走位。',
+      '生日快乐，流烬燃！许愿的时候记得闭上眼睛，不然愿望会偷看你。',
+      '你不开心的时候，就去吃块蛋糕吧，一块不够就两块。'
+    ] },
+  { key: 'friend', name: '友情篇', emoji: '🤝', color: '#C9A8E8',
+    wishes: [
+      '认识你真好，你的生日是我的专属庆祝日。',
+      '愿我们的友谊，像你的笑容一样，历久弥新。',
+      '你是我生活里的加分项，生日快乐，我的好朋友。',
+      '谢谢你把快乐分享给我，你的生日一定要更快乐。',
+      '不管多远，你的每个生日我都想准时送达祝福。',
+      '愿我们一起去更多球场，吃更多蛋糕，聊更多废话。',
+      '你值得这世上所有的美好，包括我这个朋友。（厚脸皮一下）',
+      '生日快乐！我们的友谊保质期：永久。',
+      '你是我愿意深夜畅聊、随时奔赴的朋友。',
+      '下一个生日，下下个生日，我都还要祝你快乐。'
+    ] }
+];
+
+const tabs = document.getElementById('tabs');
+const flipCard = document.getElementById('flipCard');
+const front = flipCard.querySelector('.card-front');
+const back = flipCard.querySelector('.card-back');
+let curCat = 0, curIdx = 0;
+
+WISH_CATEGORIES.forEach((cat, i) => {
+  const b = document.createElement('button');
+  b.className = 'tab'; b.textContent = cat.emoji + ' ' + cat.name;
+  b.style.setProperty('--tab', cat.color);
+  b.addEventListener('click', () => switchCat(i));
+  tabs.appendChild(b);
+});
+function renderCard(backToFront = false) {
+  const cat = WISH_CATEGORIES[curCat];
+  flipCard.style.setProperty('--card', cat.color);
+  front.querySelector('.card-emoji').textContent = cat.emoji;
+  front.querySelector('.card-tag').textContent = cat.name;
+  back.querySelector('.card-text').textContent = cat.wishes[curIdx];
+  back.querySelector('.card-count').textContent = (curIdx + 1) + ' / ' + cat.wishes.length;
+  if (backToFront) flipCard.classList.remove('flipped');
+}
+function switchCat(i) { curCat = i; curIdx = 0; renderCard(true); }
+function nextWish() { curIdx = (curIdx + 1) % WISH_CATEGORIES[curCat].wishes.length; renderCard(true); }
+flipCard.addEventListener('click', () => flipCard.classList.toggle('flipped'));
+document.getElementById('nextCard').addEventListener('click', nextWish);
+renderCard();
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);
