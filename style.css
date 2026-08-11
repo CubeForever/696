@@ -26,7 +26,7 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 @keyframes floatUp { to { transform: translateY(-120vh) rotate(360deg); } }
 
 .cat { width: 120px; height: 120px; filter: drop-shadow(0 4px 10px rgba(255,138,92,.35)); }
-.intro-cat { width: 140px; height: 140px; margin-bottom: .8rem; animation: catBounce 2.4s ease-in-out infinite; }
+.intro-kitty { width: 170px; height: 170px; margin-bottom: .8rem; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(255,138,92,.4); animation: catBounce 2.4s ease-in-out infinite; }
 @keyframes catBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 
 .confetti { position: fixed; width: 10px; height: 14px; z-index: 999; border-radius: 2px; pointer-events: none; will-change: transform, opacity; animation: pop 1.3s ease-out forwards; }
