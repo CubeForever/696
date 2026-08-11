@@ -111,7 +111,9 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .cake-punchline { margin-top: 2rem; color: var(--pink-deep); font-weight: 600; padding: 0 1.2rem; }
 
 .final-scene { background: linear-gradient(160deg, var(--pink), var(--gold) 80%, var(--cream)); text-align: center; }
-.final-cat { width: 130px; height: 130px; margin-bottom: 1rem; }
+.photo-frame { width: 160px; height: 160px; margin: 0 auto 1rem; padding: 6px; border-radius: 50%; background: #fff; box-shadow: 0 8px 24px rgba(255,138,92,.4); position: relative; animation: catBounce 3s ease-in-out infinite; }
+.photo-frame::after { content: '🎀'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font-size: 1.6rem; }
+.final-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
 .final-title { font-size: clamp(1.8rem, 6vw, 2.8rem); color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.15); }
 .final-msg { margin-top: 1rem; font-size: 1.1rem; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.12); }
 .final-sign { margin-top: 2.2rem; font-weight: 700; color: #fff; font-size: 1.15rem; }
