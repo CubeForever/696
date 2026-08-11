@@ -232,7 +232,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);
   rainHearts();
-  typewriter(document.getElementById('typeArea'), MAIN_LINE, 130, () => {
+  typewriter(document.getElementById('typeArea'), MAIN_LINE, 1000, () => {
     document.getElementById('greetSub').style.opacity = 1;
   });
   setTimeout(() => document.getElementById('greeting').scrollIntoView({ behavior: 'smooth' }), 700);
