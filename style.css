@@ -1,0 +1,14 @@
+:root {
+  --cream: #FFF6EE;
+  --pink: #FFB6C1;
+  --pink-deep: #FF8FB1;
+  --coral: #FF8A5C;
+  --gold: #FFD98E;
+  --purple: #C9A8E8;
+  --mint: #A8E8C8;
+  --ink: #5A3E36;
+  --font: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--cream); color: var(--ink); overflow-x: hidden; }
