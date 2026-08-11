@@ -163,6 +163,19 @@ flipCard.addEventListener('click', () => flipCard.classList.toggle('flipped'));
 document.getElementById('nextCard').addEventListener('click', nextWish);
 renderCard();
 
+const badminton = document.getElementById('badminton');
+badminton.addEventListener('click', () => {
+  const s = document.createElement('div'); s.className = 'shuttle'; s.textContent = '🏸';
+  badminton.appendChild(s);
+  setTimeout(() => s.remove(), 1600);
+});
+const billiards = document.getElementById('billiards');
+billiards.addEventListener('click', () => {
+  const b = document.createElement('div'); b.className = 'cue-ball';
+  billiards.appendChild(b);
+  setTimeout(() => b.remove(), 1500);
+});
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);

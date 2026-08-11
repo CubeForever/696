@@ -78,3 +78,14 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .card-text { line-height: 1.9; font-size: 1.05rem; }
 .card-count { margin-top: .8rem; font-size: .85rem; opacity: .6; }
 .next-wrap { margin-top: 1.4rem; }
+
+.hobby-scene { background: linear-gradient(160deg, #E9FFF4, var(--cream)); text-align: center; }
+.hobby-row { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+.hobby-card { position: relative; width: 220px; padding: 1.6rem 1rem; background: #fff; border-radius: 22px; text-align: center; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.08); transition: transform .2s; overflow: hidden; }
+.hobby-card:hover { transform: scale(1.05); }
+.hobby-emoji { font-size: 3rem; display: block; }
+.shuttle { position: absolute; left: 30%; top: 40%; font-size: 1.6rem; animation: fly 1.5s ease-out forwards; }
+@keyframes fly { 0% { transform: translate(0, 0) rotate(0); } 100% { transform: translate(140px, -120px) rotate(320deg); opacity: 0; } }
+.cue-ball { position: absolute; left: 40%; top: 55%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #ddd); animation: roll 1.4s ease-out forwards; }
+@keyframes roll { 0% { transform: translate(0,0); } 100% { transform: translate(120px, 90px) rotate(360deg); opacity: 0; } }
+.cake-punchline { margin-top: 2rem; color: var(--pink-deep); font-weight: 600; padding: 0 1.2rem; }
