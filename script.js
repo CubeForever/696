@@ -176,6 +176,11 @@ billiards.addEventListener('click', () => {
   setTimeout(() => b.remove(), 1500);
 });
 
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+}, { threshold: 0.25 });
+document.querySelectorAll('.scene').forEach(s => { s.classList.add('reveal'); io.observe(s); });
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);

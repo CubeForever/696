@@ -89,3 +89,17 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .cue-ball { position: absolute; left: 40%; top: 55%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #ddd); animation: roll 1.4s ease-out forwards; }
 @keyframes roll { 0% { transform: translate(0,0); } 100% { transform: translate(120px, 90px) rotate(360deg); opacity: 0; } }
 .cake-punchline { margin-top: 2rem; color: var(--pink-deep); font-weight: 600; padding: 0 1.2rem; }
+
+.final-scene { background: linear-gradient(160deg, var(--pink), var(--gold) 80%, var(--cream)); text-align: center; }
+.final-cat { width: 130px; height: 130px; margin-bottom: 1rem; }
+.final-title { font-size: clamp(1.8rem, 6vw, 2.8rem); color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.final-msg { margin-top: 1rem; font-size: 1.1rem; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.final-sign { margin-top: 2.2rem; font-weight: 700; color: #fff; font-size: 1.15rem; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+  .start-btn { padding: .85rem 1.8rem; font-size: 1.05rem; }
+  .flip-card { height: 260px; }
+}
