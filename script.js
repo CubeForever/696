@@ -55,6 +55,31 @@ function typewriter(el, text, speed = 130, done) {
   }, speed);
 }
 
+const CANDLE_COUNT = 8;
+const candleLayer = document.getElementById('candles');
+for (let i = 0; i < CANDLE_COUNT; i++) {
+  const candle = document.createElement('div');
+  candle.className = 'candle';
+  candle.innerHTML = '<div class="flame"></div>';
+  candle.addEventListener('click', () => {
+    if (candle.classList.contains('out')) return;
+    candle.classList.add('out');
+    puffSmoke(candle);
+    if (!candleLayer.querySelector('.candle:not(.out)')) setTimeout(birthdayFireworks, 500);
+  });
+  candleLayer.appendChild(candle);
+}
+function puffSmoke(candle) {
+  const s = document.createElement('div'); s.className = 'smoke';
+  candle.appendChild(s); setTimeout(() => s.remove(), 1200);
+}
+function birthdayFireworks() {
+  document.getElementById('fireworks').textContent = '🎆 流烬燃，生日快乐！🎆';
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.5, 60), i * 180);
+  }
+}
+
 document.getElementById('startBtn').addEventListener('click', () => {
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   setTimeout(() => { for (let i = 0; i < 6; i++) burstConfetti(Math.random() * innerWidth, Math.random() * innerHeight * 0.4, 50); }, 200);

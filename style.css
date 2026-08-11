@@ -44,3 +44,20 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .today-big { margin-top: 1rem; font-size: clamp(2.2rem, 7vw, 3.8rem); font-weight: 900; color: var(--coral); animation: bounce 1.6s ease-in-out infinite; }
 @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 .today-fun { max-width: 34rem; margin: 1.4rem auto; line-height: 1.8; padding: 0 1.2rem; }
+
+.scene-title { text-align: center; font-size: clamp(1.5rem, 5vw, 2.2rem); color: var(--pink-deep); }
+.cake-scene { background: linear-gradient(160deg, #FFE9F0, var(--cream)); text-align: center; }
+.cake-hint { margin-top: .8rem; color: var(--ink); opacity: .75; font-size: .95rem; }
+.cake { position: relative; width: min(300px, 70vw); margin: 2rem auto 0; }
+.candles { display: flex; justify-content: center; gap: 8px; position: relative; z-index: 2; }
+.candle { width: 14px; height: 46px; border-radius: 4px; background: repeating-linear-gradient(45deg, var(--pink-deep), var(--pink-deep) 4px, #fff 4px, #fff 8px); cursor: pointer; position: relative; }
+.candle .flame { width: 10px; height: 16px; background: radial-gradient(circle at 50% 75%, #FFD98E, var(--coral)); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); animation: flicker .3s ease-in-out infinite alternate; }
+.candle.out .flame { display: none; }
+@keyframes flicker { from { transform: translateX(-50%) scale(1); } to { transform: translateX(-50%) scale(1.2, .85); } }
+.smoke { position: absolute; top: -20px; left: 50%; width: 8px; height: 24px; background: rgba(160,160,160,.5); border-radius: 50%; animation: rise 1.1s ease-out forwards; }
+@keyframes rise { to { transform: translateY(-34px) scale(1.6); opacity: 0; } }
+.cake-layer { border-radius: 8px; }
+.l3 { height: 52px; background: linear-gradient(180deg, var(--pink-deep), var(--coral)); margin-top: -6px; }
+.l2 { height: 46px; background: linear-gradient(180deg, var(--cream), #FFE7D1); margin-top: -4px; }
+.l1 { height: 40px; background: linear-gradient(180deg, var(--gold), #FFC86B); border-radius: 8px 8px 14px 14px; }
+.fireworks { margin-top: 2rem; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 900; color: var(--pink-deep); min-height: 3rem; text-align: center; }
