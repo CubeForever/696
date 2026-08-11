@@ -38,3 +38,9 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 .greeting-box { text-align: center; padding: 2rem; }
 .greeting-sub { margin-top: 1.2rem; font-size: 1.15rem; color: var(--ink); opacity: 0; transition: opacity 1s; }
 .greeting-cat { margin-bottom: 1rem; }
+
+.today-scene { background: linear-gradient(160deg, var(--cream), #FFE9F0); text-align: center; }
+.today-title { font-size: clamp(1.3rem, 4vw, 1.8rem); color: var(--pink-deep); }
+.today-big { margin-top: 1rem; font-size: clamp(2.2rem, 7vw, 3.8rem); font-weight: 900; color: var(--coral); animation: bounce 1.6s ease-in-out infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.today-fun { max-width: 34rem; margin: 1.4rem auto; line-height: 1.8; padding: 0 1.2rem; }
