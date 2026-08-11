@@ -42,7 +42,7 @@ body { font-family: var(--font); background: var(--cream); color: var(--ink); ov
 @keyframes blink { 50% { opacity: 0; } }
 .greeting-box { text-align: center; padding: 2rem; }
 .greeting-sub { margin-top: 1.2rem; font-size: 1.15rem; color: var(--ink); opacity: 0; transition: opacity 1s; }
-.greeting-cat { margin-bottom: 1rem; }
+.greeting-photo { width: 120px; height: 120px; margin-bottom: 1rem; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(255,138,92,.4); animation: catBounce 2.8s ease-in-out infinite; }
 
 .today-scene { background: linear-gradient(160deg, var(--cream), #FFE9F0); text-align: center; }
 .today-title { font-size: clamp(1.3rem, 4vw, 1.8rem); color: var(--pink-deep); }
